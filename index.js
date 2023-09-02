@@ -1,7 +1,9 @@
 
 
-const apikey = "863242cfb2b1d357e6093d9a4df19a4b ";  // url+uri+
-const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&";
+const apikey = "3265874a2c77ae4a04bb96236a642d2f";  // url+uri+
+// const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&";
+const api = "https://api.openweathermap.org/data/2.5/weather?units=metric";
+const newapi = "https://api.openweathermap.org/data/2.5/weather?q=Bhopal&appid=3265874a2c77ae4a04bb96236a642d2f&units=metric";
 
 const searchBox = document.querySelector(".search input");
 const searchbtn = document.querySelector(".search button");
@@ -9,10 +11,10 @@ const searchbtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
 async function checkWeather(city){
-    const response = await fetch( apiurl + 'q=' + city + `&appid=${apikey}` );
-    var data = await response.json();
 
-    console.log(data);
+ const response = await fetch(api +'&q='+ city +`&appid=${apikey}`);
+ var data = await response.json();
+ console.log(data);
 
     if(data.name == undefined){
         alert("Data Not Found \nEnter Another City Name");
